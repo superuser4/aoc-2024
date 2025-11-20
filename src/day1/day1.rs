@@ -27,6 +27,9 @@ pub fn day1_part1() {
 
     left_vec.sort();
     right_vec.sort();
+    
+    //day1_part2(&left_vec, &right_vec);
+    //exit(0);
 
     let mut count: i32 = 0;
     for (left, right) in left_vec.iter().zip(right_vec.iter()) {
@@ -35,4 +38,18 @@ pub fn day1_part1() {
     }
 
     println!("{}", count);
+}
+
+pub fn day1_part2(left_vec: &Vec<i32>, right_vec: &Vec<i32>) {
+    let mut sim: i32 = 0;
+    for num in left_vec {
+        let mut count = 0;
+        for compar in right_vec {
+            if num == compar {
+                count += 1;
+            }
+        }
+        sim += num * count;
+    }
+    println!("{}", sim);
 }
